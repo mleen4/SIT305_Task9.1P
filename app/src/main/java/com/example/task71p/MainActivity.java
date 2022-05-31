@@ -14,10 +14,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button AdvertButton, ShowAllButton;
+        Button AdvertButton, ShowAllButton, ShowMapButton;
 
         AdvertButton = findViewById(R.id.newAdvertButton);
         ShowAllButton = findViewById(R.id.showAllButton);
+        ShowMapButton = findViewById(R.id.showMapButton);
 
         AdvertButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,6 +32,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), ShowItems.class));
+            }
+        });
+
+        ShowMapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), MapsActivity.class));
             }
         });
 

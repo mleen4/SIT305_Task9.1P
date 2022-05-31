@@ -14,15 +14,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     public DatabaseHelper(@Nullable Context context) {
-        super(context, "items_db", null, 1);
+        super(context, "items_db", null, 4);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String CREATE_ITEM_TABLE = "CREATE TABLE ITEMS(ITEMID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, PHONE INTEGER, DESCRIPTION TEXT, DATE TEXT, LOCATION TEXT, LOST BOOLEAN)";
+        String CREATE_ITEM_TABLE = "CREATE TABLE ITEMS(ITEMID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, PHONE INTEGER, DESCRIPTION TEXT, DATE TEXT, LATITUDE DOUBLE, LONGITUDE DOUBLE, LOST BOOLEAN)";
         sqLiteDatabase.execSQL(CREATE_ITEM_TABLE);
-
-
     }
 
     @Override
@@ -41,7 +39,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("PHONE", item.getPhone());
         contentValues.put("DESCRIPTION", item.getDescription());
         contentValues.put("DATE", item.getDate());
-        contentValues.put("LOCATION", item.getLocation());
+        contentValues.put("LATITUDE", item.getLocationLat());
+        contentValues.put("LONGITUDE", item.getLocationLong());
         contentValues.put("LOST", item.isLost());
         long row = db.insert("ITEMS", null, contentValues);
 
@@ -89,5 +88,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor res = db.rawQuery("SELECT * FROM ITEMS WHERE NAME=?", new String[]{name});
 
         return res;
+    }
+
+    public Cursor getAllItemLocations()
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String SELECT_ALL_ITEMS = "SELECT * FROM ITEMS";
+        Cursor cursor = db.rawQuery(SELECT_ALL_ITEMS, null);
+
+        return cursor;
     }
 }

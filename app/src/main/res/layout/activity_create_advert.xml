@@ -18,7 +18,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.166" />
+        app:layout_constraintVertical_bias="0.199" />
 
     <EditText
         android:id="@+id/advertDescription"
@@ -41,12 +41,12 @@
         android:ems="10"
         android:hint="Date"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/advertLocation"
+        app:layout_constraintBottom_toTopOf="@+id/autocomplete_fragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.907" />
+        app:layout_constraintVertical_bias="0.834" />
 
     <EditText
         android:id="@+id/advertPhone"
@@ -62,32 +62,15 @@
         app:layout_constraintTop_toBottomOf="@+id/advertName"
         app:layout_constraintVertical_bias="0.579" />
 
-    <EditText
-        android:id="@+id/advertLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Location"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.696" />
-
     <Button
         android:id="@+id/saveAdvertButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.466"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/advertLocation"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
         android:id="@+id/lostCheckBox"
@@ -112,5 +95,31 @@
         app:layout_constraintStart_toEndOf="@+id/lostCheckBox"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.042" />
+
+    <fragment
+        android:id="@+id/autocomplete_fragment"
+        android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+        android:layout_width="344dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.771" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="107dp"
+        android:layout_height="26dp"
+        android:text="Location:"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/autocomplete_fragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.108"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/advertDate"
+        app:layout_constraintVertical_bias="0.849" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

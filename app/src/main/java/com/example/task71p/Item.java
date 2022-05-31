@@ -7,15 +7,18 @@ public class Item {
     private int phone;
     private String description;
     private String date;
-    private String location;
+
+    private double locationLat;
+    private double locationLong;
     private boolean lost;
 
-    public Item(String name, int phone, String description, String date, String location, boolean lost) {
+    public Item(String name, int phone, String description, String date, double locationlat, double locationlong, boolean lost) {
         this.name = name;
         this.phone = phone;
         this.description = description;
         this.date = date;
-        this.location = location;
+        this.locationLat = locationlat;
+        this.locationLong = locationlong;
         this.lost = lost;
     }
 
@@ -51,13 +54,6 @@ public class Item {
         this.date = date;
     }
 
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
 
     public boolean isLost() {
         return lost;
@@ -65,5 +61,21 @@ public class Item {
 
     public void setLost(boolean lost) {
         this.lost = lost;
+    }
+
+    public double getLocationLat() {
+        return locationLat;
+    }
+
+    public void setLocationLat(double locationLat) {
+        this.locationLat = locationLat;
+    }
+
+    public double getLocationLong() {
+        return locationLong;
+    }
+
+    public void setLocationLong(double locationLong) {
+        this.locationLong = locationLong;
     }
 }
