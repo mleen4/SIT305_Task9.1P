@@ -39,7 +39,7 @@ public class CreateAdvert extends AppCompatActivity {
         CheckBox FoundCheckBox = findViewById(R.id.foundCheckBox);
 
 
-        Places.initialize(getApplicationContext(), "AIzaSyBkKiJ1fqaNYCcixcc_37AuMYOhE1NhUOA");
+        Places.initialize(getApplicationContext(), "APIKEY");
 
         PlacesClient placesClient = Places.createClient(this);
 
